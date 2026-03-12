@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:providers/providers.dart';
 
 import 'providers/app_provider.dart';
 import 'providers/auth_provider.dart';
@@ -8,7 +8,7 @@ import 'providers/task_provider.dart';
 
 void main() {
   runApp(
-    MultiProvider(
+    Multiprovider(
       providers: [
         ChangeNotifierProvider(create: (_) => AppProvider()),
         ChangeNotifierProvider(create: (_) => AuthProvider()),
@@ -18,4 +18,22 @@ void main() {
       child: const MyApp(),
     ),
   );
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Sunutask',
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(title: const Text("Sunutask")),
+        body: const Center(
+          child: Text("Application prête"),
+        ),
+      ),
+    );
+  }
 }
